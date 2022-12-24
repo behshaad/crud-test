@@ -1,0 +1,94 @@
+<section>
+  <h1 class="h3 m-3 fw-normal">contact me(post)</h1>
+  <main class="container mt-5">
+    <div class="row">
+      <div class="col-12 col-md-8 col-lg-4 mx-auto">
+        <div class="row">
+          <div class="col-12 mb-2">
+            <label for="floatingPassword">ID</label>
+            <input
+              #textID
+              type="text"
+              class="form-control"
+              placeholder="text"
+            />
+          </div>
+
+          <div class="col-12 mb-2">
+            <label for="floatingPassword">Name</label>
+            <input
+              #textName
+              type="text"
+              class="form-control"
+              placeholder="text"
+            />
+          </div>
+
+          <div class="col-12 mb-2">
+            <label for="floatingInput">Email address</label>
+            <input
+              #textEmail
+              type="email"
+              class="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
+          </div>
+
+          <div class="col-12 mb-4">
+            <label for="description">Description</label>
+            <textarea
+              #texDescription
+              class="form-control"
+              placeholder="Enter the description"
+              id="description"
+            ></textarea>
+          </div>
+
+          <div class="col-12 mb-2">
+            <button
+              (click)="sendForm()"
+              class="w-100 btn btn-lg btn-primary mb-2"
+              type="submit"
+              *ngIf="!isCallingAPI; else loading"
+            >
+              ADD
+            </button>
+
+            <button
+              (click)="putForm()"
+              class="w-100 btn btn-lg btn-primary mb-2"
+              type="submit"
+              *ngIf="!isCallingAPI"
+            >
+              Edite
+            </button>
+
+            <button
+              (click)="DeleteForm()"
+              class="w-100 btn btn-lg btn-primary"
+              type="submit"
+              *ngIf="!isCallingAPI"
+            >
+              Delete
+            </button>
+
+            <ng-template #loading>
+              <div class="spinner-border" role="status"></div>
+            </ng-template>
+          </div>
+
+          <div class="col-12 mb-2" *ngIf="isSubmitted">
+            <div class="alert alert-success">
+              <ul>
+                <li>{{ name }}</li>
+                <li>{{ Email }}</li>
+                <li>{{ desc }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>
